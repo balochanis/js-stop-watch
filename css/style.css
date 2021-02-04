@@ -1,0 +1,65 @@
+@font-face {
+  src: url("../fonts/digital-7.ttf");
+  font-family: digital;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.4;
+  font-size: 16px;
+}
+
+.container {
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.stop-watch {
+  display: flex;
+  flex-flow: column wrap;
+  width: 400px;
+  background-color: purple;
+  padding: 15px 30px;
+  border-radius: 10px;
+}
+
+
+
+.stop-watch-display {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  padding: 10px 20px;
+}
+
+.time {
+  text-align: right;
+}
+
+.time h2 {
+  font-family: digital, Arial, Helvetica, sans-serif;
+  font-size: 48px;
+  background-color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px black;
+  letter-spacing: 3px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex: 1 50%;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.controls button#pause-btn {
+  display: none;
+}
