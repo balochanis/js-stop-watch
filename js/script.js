@@ -9,44 +9,57 @@ var milliSecsDisplay = document.getElementById("milli-seconds");
 var startBtn = document.getElementById("start-btn");
 var pauseBtn = document.getElementById("pause-btn");
 
-function start() {
-  if (startTimerBtn === false) {
-    mili++;
-    milliSecsDisplay.innerHTML = mili;
-    if (mili < 10) {
-      milliSecsDisplay.innerHTML = "0" + mili;
-    }
+function startTimer() {
 
-    if (mili == 10) {
-      secs++;
-      secDisplay.innerHTML = secs;
-      mili = "00";
+  var myTimer = setInterval(function()
+  {
+    if (startTimerBtn === false) {
+      mili++;
       milliSecsDisplay.innerHTML = mili;
-      if (secs < 10) {
+      if (mili < 10) {
+        milliSecsDisplay.innerHTML = "0" + mili;
+      }
+  
+      if (mili == 10) {
+        secs++;
+        secDisplay.innerHTML = secs;
+        mili = "00";
+        milliSecsDisplay.innerHTML = mili;
         if (secs < 10) {
-          secDisplay.innerHTML = "0" + secs;
+          if (secs < 10) {
+            secDisplay.innerHTML = "0" + secs;
+          }
         }
       }
-    }
-
-    if (secs == 10) {
-      mins++;
-      minDisplay.innerHTML = mins;
-      secs = "00";
-      secDisplay.innerHTML = secs;
-      if (mins < 10) {
-        minDisplay.innerHTML = "0" + mins;
+  
+      if (secs == 10) {
+        mins++;
+        minDisplay.innerHTML = mins;
+        secs = "00";
+        secDisplay.innerHTML = secs;
+        if (mins < 10) {
+          minDisplay.innerHTML = "0" + mins;
+        }
       }
+      startBtn.style.display = "none";
+      pauseBtn.style.display = "unset";
     }
-    startBtn.style.display = "none";
-    pauseBtn.style.display = "unset";
-  }
+  }, 100);
+  
 }
 
-function startTimer() {
-  var stopTime = setInterval(start, 100);
-}
+
+
+
 
 function pauseTimer() {
-  clearInterval(stopTime);
+  clearInterval(myTimer);
+}
+
+
+function resetTimer()
+{
+  milliSecsDisplay.innerHTML = "00";
+  secDisplay.innerHTML = "00";
+  minDisplay.innerHTML = "00";
 }
