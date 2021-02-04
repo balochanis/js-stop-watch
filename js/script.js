@@ -54,6 +54,7 @@ function pauseTimer() {
 }
 
 function resetTimer() {
+  clearInterval(myTimer);
   milliSecsDisplay.innerHTML = "00";
   secDisplay.innerHTML = "00";
   minDisplay.innerHTML = "00";
