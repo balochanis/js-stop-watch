@@ -2,6 +2,7 @@ let secs = 0;
 let mins = 0;
 let mili = 0;
 let startTimerBtn = false;
+var myTimer;
 
 var minDisplay = document.getElementById("minutes");
 var secDisplay = document.getElementById("seconds");
@@ -10,16 +11,14 @@ var startBtn = document.getElementById("start-btn");
 var pauseBtn = document.getElementById("pause-btn");
 
 function startTimer() {
-
-  var myTimer = setInterval(function()
-  {
+  myTimer = setInterval(function () {
     if (startTimerBtn === false) {
       mili++;
       milliSecsDisplay.innerHTML = mili;
       if (mili < 10) {
         milliSecsDisplay.innerHTML = "0" + mili;
       }
-  
+
       if (mili == 10) {
         secs++;
         secDisplay.innerHTML = secs;
@@ -31,7 +30,7 @@ function startTimer() {
           }
         }
       }
-  
+
       if (secs == 10) {
         mins++;
         minDisplay.innerHTML = mins;
@@ -45,20 +44,16 @@ function startTimer() {
       pauseBtn.style.display = "unset";
     }
   }, 100);
-  
 }
-
-
-
-
 
 function pauseTimer() {
   clearInterval(myTimer);
+  pauseBtn.style.display = "none";
+  startBtn.style.display = "unset";
+
 }
 
-
-function resetTimer()
-{
+function resetTimer() {
   milliSecsDisplay.innerHTML = "00";
   secDisplay.innerHTML = "00";
   minDisplay.innerHTML = "00";
